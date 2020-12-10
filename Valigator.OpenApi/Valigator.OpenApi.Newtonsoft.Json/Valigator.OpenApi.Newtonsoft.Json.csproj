@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Valigator.AspNetCore.Newtonsoft.Json" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Valigator.OpenApi.Core\Valigator.OpenApi.Core.csproj" />
+  </ItemGroup>
+
+</Project>
