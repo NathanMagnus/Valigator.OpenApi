@@ -48,6 +48,7 @@ jobs:
           PROJECT_FILE_PATH: Valigator.OpenApi/Valigator.OpenApi.Core/Valigator.OpenApi.Core.csproj  
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
           VERSION_FILE_PATH: Valigator.OpenApi/Version.txt
+          VERSION_REGEX: ^(.*)$
 
       - name: Publish
         uses: brandedoutcast/publish-nuget@v2.5.5
@@ -55,3 +56,4 @@ jobs:
           PROJECT_FILE_PATH: Valigator.OpenApi/Valigator.OpenApi.Core/Valigator.OpenApi.Core.csproj  
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
           VERSION_FILE_PATH: Valigator.OpenApi/Version.txt
+          VERSION_REGEX: ^(.*)$
