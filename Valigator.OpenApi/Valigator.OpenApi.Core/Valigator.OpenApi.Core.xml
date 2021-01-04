@@ -4,6 +4,22 @@
         <name>Valigator.OpenApi.Core</name>
     </assembly>
     <members>
+        <member name="T:Valigator.OpenApi.Core.Authorization.Authorization">
+            <summary>
+            Authorization information.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.Authorization.Authorization.#ctor(System.String,NSwag.OpenApiSecurityScheme,NSwag.OpenApiSecurityRequirement,System.Func{NSwag.Generation.Processors.Contexts.OperationProcessorContext,System.Collections.Generic.IEnumerable{System.String}},System.Func{Valigator.OpenApi.Core.EndpointInformation,System.Boolean},System.String[])">
+            <summary>
+            Authorization information.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.Authorization.AuthorizationOperationProcessor.#ctor(Valigator.OpenApi.Core.Authorization.Authorization[])">
+            <summary>
+            Add authorizations to contorllers
+            </summary>
+            <param name="authorizations">Authorizations to add</param>
+        </member>
         <member name="T:Valigator.OpenApi.Core.Discriminators.DiscriminatorMapping">
             <summary>
             Discriminator mapping definition.
@@ -58,6 +74,65 @@
             <summary>
             Determine if the object is "complex" (ie: not primitive). This will result in a $ref in the OpenApi's generated JSON.
             </summary>
+        </member>
+        <member name="T:Valigator.OpenApi.Core.ModelBinding.OpenApiValidateModelBinderAttribute">
+            <summary>
+            Class used to create a new ModelBinder.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.ModelBinding.OpenApiValidateModelBinderAttribute.GetData">
+            <summary>
+            Get the data from the model. This is type Data&lt;T&gt;.
+            </summary>
+            <returns>Valigator Data</returns>
+        </member>
+        <member name="T:Valigator.OpenApi.Core.EndpointInformation">
+            <summary>
+            Information about an endpoint
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.EndpointInformation.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Information about an endpoint
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.EndpointInformation.CreateOperationId(System.String,System.String)">
+            <summary>
+            Create an operation ID
+            </summary>
+            <param name="controllerName">The name of the controller</param>
+            <param name="methodName">The name of the method</param>
+            <returns>Operation ID that can be used when creating EndpointInformation objects</returns>
+        </member>
+        <member name="T:Valigator.OpenApi.Core.Setup.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for setting up OpenAPI with Valigator
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Valigator.OpenApi.Core.Setup.ValigatorOpenApiOptions})">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator.
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="confgureOptions">Additional configuration</param>
+            <returns>ServiceCollection</returns>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.Core.Setup.ValigatorOpenApiOptions,System.Action{NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings})">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="options">Additional options to use</param>
+            <param name="optionAction">Additional configuration for OpenAPI Document generation</param>
+            <returns>ServiceCollection</returns>
+        </member>
+        <member name="M:Valigator.OpenApi.Core.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.Core.Setup.ValigatorOpenApiOptions)">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="options">Additional options to use</param>
+            <returns>ServiceCollection</returns>
         </member>
         <member name="P:Valigator.OpenApi.Core.TypeMapping.CustomPrimitiveTypeMapper.MappedType">
             <summary>

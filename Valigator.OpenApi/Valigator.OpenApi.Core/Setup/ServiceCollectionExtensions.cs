@@ -2,6 +2,7 @@
 using NJsonSchema.Generation;
 using NSwag.Generation.AspNetCore;
 using System;
+using Valigator.OpenApi.Core.Authorization;
 using Valigator.OpenApi.Core.Discriminators;
 using Valigator.OpenApi.Core.TypeMapping;
 using Valigator.OpenApi.Core.ValigatorUnwrapping;
@@ -21,7 +22,7 @@ namespace Valigator.OpenApi.Core.Setup
 		/// <returns>ServiceCollection</returns>
 		public static IServiceCollection AddValigatorOpenApi(this IServiceCollection services, Action<ValigatorOpenApiOptions> confgureOptions)
 		{
-			var options = new ValigatorOpenApiOptions("OpenAPI Document", "v1", "Open API Description", Array.Empty<Authorization>(), new(), _ => { }, new DefaultSchemaNameGenerator());
+			var options = new ValigatorOpenApiOptions("OpenAPI Document", "v1", "Open API Description", Array.Empty<Authorization.Authorization>(), new(), _ => { }, new DefaultSchemaNameGenerator());
 			services.AddValigatorOpenApi(options);
 			confgureOptions?.Invoke(options);
 			return services;
@@ -76,7 +77,7 @@ namespace Valigator.OpenApi.Core.Setup
 			return services;
 		}
 
-		private static void AddSecurities(AspNetCoreOpenApiDocumentGeneratorSettings configuration, Authorization[] authorizations)
+		private static void AddSecurities(AspNetCoreOpenApiDocumentGeneratorSettings configuration, Authorization.Authorization[] authorizations)
 			=> configuration.OperationProcessors.Add(new AuthorizationOperationProcessor(authorizations));
 	}
 }
