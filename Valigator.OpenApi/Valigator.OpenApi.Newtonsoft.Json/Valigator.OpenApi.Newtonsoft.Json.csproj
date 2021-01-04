@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Version>0.1.0-pre01</Version>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Valigator.AspNetCore.Newtonsoft.Json" Version="2.1.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Valigator.AspNetCore.Newtonsoft.Json" Version="2.1.2" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Valigator.OpenApi.Core\Valigator.OpenApi.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Valigator.OpenApi.Core\Valigator.OpenApi.Core.csproj" />
+	</ItemGroup>
 
 </Project>
