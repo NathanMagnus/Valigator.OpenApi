@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Valigator.AspNetCore.Newtonsoft.Json" Version="2.1.2" />
   </ItemGroup>

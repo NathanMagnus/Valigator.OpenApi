@@ -19,11 +19,11 @@ namespace Valigator.OpenApi.Core.ValueDescriptorHandlers
 		public void HandleDescriptor(IValueDescriptor valueDescriptor, Type valueType, JsonSchema resourceSchemaProperty)
 			=> valueDescriptor
 				.As<InSetDescriptor>()
-				.Do(d => resourceSchemaProperty.RemoveAndAddExtensionData(InvertedExtensionKey, ExtensionKey, $"{{{string.Join(", ", d.Options.ToArray())}}}"));
+				.Do(d => resourceSchemaProperty.UpdateExtensionData(InvertedExtensionKey, ExtensionKey, $"{{{string.Join(", ", d.Options.ToArray())}}}"));
 
 		public void Invert(IValueDescriptor valueDescriptor, Type valueType, JsonSchema resourceSchemaProperty)
 			=> valueDescriptor
 				.As<InSetDescriptor>()
-				.Do(d => resourceSchemaProperty.RemoveAndAddExtensionData(ExtensionKey, InvertedExtensionKey, $"{{{string.Join(", ", d.Options.ToArray())}}}"));
+				.Do(d => resourceSchemaProperty.UpdateExtensionData(ExtensionKey, InvertedExtensionKey, $"{{{string.Join(", ", d.Options.ToArray())}}}"));
 	}
 }

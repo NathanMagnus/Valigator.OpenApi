@@ -37,7 +37,7 @@ namespace Valigator.OpenApi.Core.ValueDescriptorHandlers
 				{
 					resourceSchemaProperty.Minimum = null;
 					resourceSchemaProperty.Maximum = null;
-					resourceSchemaProperty.RemoveAndAddExtensionData(ExtensionKey, InvertedExtensionKey, d.Value);
+					resourceSchemaProperty.UpdateExtensionData(ExtensionKey, InvertedExtensionKey, d.Value);
 				});
 	}
 }

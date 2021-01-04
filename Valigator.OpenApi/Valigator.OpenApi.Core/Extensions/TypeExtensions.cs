@@ -8,7 +8,7 @@ using Valigator.OpenApi.Core.Exceptions;
 
 namespace Valigator.OpenApi.Core.Extensions
 {
-	public static class TypeExtensions
+	internal static class TypeExtensions
 	{
 		private static readonly Func<Type, IEnumerable<Type>> _defaultUnwrappingFunc = item => item
 			.UnwrapTask()

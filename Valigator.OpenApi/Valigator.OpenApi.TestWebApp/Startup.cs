@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NJsonSchema.Generation;
 using System;
-using Valigator.OpenApi.Core;
+using Valigator.OpenApi.Core.Authorization;
 using Valigator.OpenApi.Core.Discriminators;
 using Valigator.OpenApi.Core.Setup;
 using Valigator.OpenApi.Newtonsoft.Json;

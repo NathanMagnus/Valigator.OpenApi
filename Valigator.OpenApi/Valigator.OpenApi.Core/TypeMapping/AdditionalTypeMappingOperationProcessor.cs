@@ -11,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using Valigator.OpenApi.Core.Exceptions;
 using Valigator.OpenApi.Core.Extensions;
-using Valigator.OpenApi.Core.Setup;
+using Valigator.OpenApi.Core.ModelBinding;
 using Valigator.OpenApi.Core.ValigatorUnwrapping;
 
 namespace Valigator.OpenApi.Core.TypeMapping

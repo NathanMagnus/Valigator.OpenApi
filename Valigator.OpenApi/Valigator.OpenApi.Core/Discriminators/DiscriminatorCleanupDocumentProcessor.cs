@@ -11,9 +11,7 @@ namespace Valigator.OpenApi.Core.Discriminators
 		public DiscriminatorMappings DiscriminatorMappings { get; }
 
 		public DiscriminatorCleanupDocumentProcessor(DiscriminatorMappings discriminatorMappings)
-		{
-			DiscriminatorMappings = discriminatorMappings;
-		}
+			=> DiscriminatorMappings = discriminatorMappings;
 
 		public void Process(DocumentProcessorContext context)
 			=> SetDiscriminatorMappings(context);
@@ -22,7 +20,7 @@ namespace Valigator.OpenApi.Core.Discriminators
 			=> context
 				.Document
 				.Definitions
-				.Where(d => d.Value.DiscriminatorObject != null)
+				.Where(definition => definition.Value.DiscriminatorObject != null)
 				.Do(definition =>
 				{
 					var add = definition

@@ -16,7 +16,7 @@ namespace Valigator.OpenApi.Core.Extensions
 	{
 		public static void ModifyPropertySchema(this JsonSchema schema, DataDescriptor dataDescriptor, OpenApiDocumentGeneratorSettings settings)
 		{
-			schema.IsNullableRaw = true; // nullable unless the "not nullable" descriptor is present
+			schema.IsNullableRaw = true; // Everything will be nullable unless Valigator indicates NotNullable via  DataDescriptor
 
 			var tuples = dataDescriptor
 				.ValueDescriptors
@@ -47,7 +47,7 @@ namespace Valigator.OpenApi.Core.Extensions
 			schema.ExtensionData.Add(key, value);
 		}
 
-		public static void RemoveAndAddExtensionData(this JsonSchema schema, string oldKey, string newKey, object newValue)
+		public static void UpdateExtensionData(this JsonSchema schema, string oldKey, string newKey, object newValue)
 		{
 			schema.RemoveExtensionData(oldKey);
 			schema.AddExtensionData(newKey, newValue);
@@ -71,7 +71,7 @@ namespace Valigator.OpenApi.Core.Extensions
 
 		private static void SetDefaultValue(this JsonSchema resourceSchemaProperty, DataDescriptor dataDescriptor, OpenApiDocumentGeneratorSettings settings)
 			=> GetStateDescriptor(dataDescriptor)
-				.Do(s => resourceSchemaProperty.Default = ConvertToDefaultObject(s, settings));
+				.Do(s => resourceSchemaProperty.Default = GetDefaultValue(s, settings));
 
 		private static Option<object> GetStateDescriptor(DataDescriptor dataDescriptor)
 		{
@@ -82,21 +82,21 @@ namespace Valigator.OpenApi.Core.Extensions
 			return Option.None<object>();
 		}
 
-		private static object ConvertToDefaultObject(object obj, OpenApiDocumentGeneratorSettings settings)
+		private static object GetDefaultValue(object obj, OpenApiDocumentGeneratorSettings settings)
 		{
 			if (obj == null)
 				return obj;
 
-			obj = obj.GetType().IsFunctionalOption() ? GetOptionValue(obj) : obj;
+			var newObj = obj.GetType().IsFunctionalOption() ? GetOptionValue(obj) : obj;
 
-			var objType = obj.GetType();
-			if (objType.IsEnum)
-				return obj.ToString();
+			var newObjType = newObj.GetType();
+			if (newObjType.IsEnum)
+				return newObj.ToString();
 
-			if (objType.IsComplexObject())
-				return JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj, settings.SerializerSettings));
+			if (newObjType.IsComplexObject())
+				return JsonConvert.DeserializeObject(JsonConvert.SerializeObject(newObj, settings.SerializerSettings));
 
-			return obj;
+			return newObj;
 		}
 
 		private static object GetOptionValue(dynamic obj)

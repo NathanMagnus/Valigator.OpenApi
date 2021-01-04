@@ -6,6 +6,9 @@ using Valigator.OpenApi.Core.Extensions;
 
 namespace Valigator.OpenApi.Core.Discriminators
 {
+	/// <summary>
+	/// Mulitple Discriminator Mappings.
+	/// </summary>
 	public class DiscriminatorMappings : IReadOnlyDictionary<Type, DiscriminatorMapping>
 	{
 		private readonly IDictionary<Type, DiscriminatorMapping> _dictionary = new Dictionary<Type, DiscriminatorMapping>();
