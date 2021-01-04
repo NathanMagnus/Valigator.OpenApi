@@ -32,13 +32,22 @@ jobs:
       
       - name: Install dependencies
         run: dotnet restore
+        working-directory: Valigator.OpenApi
       
       - name: Build
         run: dotnet build --configuration Release --no-restore
+        working-directory: Valigator.OpenApi
       
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        working-directory: Valigator.OpenApi
         
+      - name: Publish
+        uses: brandedoutcast/publish-nuget@v2.5.5
+        with:
+          PROJECT_FILE_PATH: Valigator.OpenApi/Valigator.OpenApi.Core/Valigator.OpenApi.Core.csproj  
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
+
       - name: Publish
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
