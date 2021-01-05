@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.Core", "Valigator.OpenApi.Core\Valigator.OpenApi.Core.csproj", "{5A135EC3-B9C0-4652-8D0B-4D7A613B3DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore", "Valigator.OpenApi.AspNetCore\Valigator.OpenApi.AspNetCore.csproj", "{5A135EC3-B9C0-4652-8D0B-4D7A613B3DA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.Newtonsoft.Json", "Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.csproj", "{05E854A2-3F34-4914-BC1A-00D027B8C6BA}"
 EndProject

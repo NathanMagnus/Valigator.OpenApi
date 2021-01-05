@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using Valigator.OpenApi.Core.Setup;
+using Valigator.OpenApi.AspNetCore.Setup;
 
 namespace Valigator.OpenApi.Newtonsoft.Json
 {

@@ -8,9 +8,9 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NJsonSchema.Generation;
 using System;
-using Valigator.OpenApi.Core.Authorization;
-using Valigator.OpenApi.Core.Discriminators;
-using Valigator.OpenApi.Core.Setup;
+using Valigator.OpenApi.AspNetCore.Authorization;
+using Valigator.OpenApi.AspNetCore.Discriminators;
+using Valigator.OpenApi.AspNetCore.Setup;
 using Valigator.OpenApi.Newtonsoft.Json;
 using Valigator.OpenApi.TestWebApp.Controllers;
 

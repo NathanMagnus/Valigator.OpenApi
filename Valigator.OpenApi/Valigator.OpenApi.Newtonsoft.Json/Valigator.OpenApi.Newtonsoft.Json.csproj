@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Valigator.OpenApi.Core\Valigator.OpenApi.Core.csproj" />
+		<ProjectReference Include="..\Valigator.OpenApi.AspNetCore\Valigator.OpenApi.AspNetCore.csproj" />
 	</ItemGroup>
 
 </Project>

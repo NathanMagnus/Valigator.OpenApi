@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Valigator.OpenApi.AspNetCore</name>
+    </assembly>
+    <members>
+        <member name="T:Valigator.OpenApi.AspNetCore.Authorization.Authorization">
+            <summary>
+            Authorization information.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Authorization.Authorization.#ctor(System.String,NSwag.OpenApiSecurityScheme,NSwag.OpenApiSecurityRequirement,System.Func{NSwag.Generation.Processors.Contexts.OperationProcessorContext,System.Collections.Generic.IEnumerable{System.String}},System.Func{Valigator.OpenApi.AspNetCore.EndpointInformation,System.Boolean},System.String[])">
+            <summary>
+            Authorization information.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Authorization.AuthorizationOperationProcessor.#ctor(Valigator.OpenApi.AspNetCore.Authorization.Authorization[])">
+            <summary>
+            Add authorizations to contorllers
+            </summary>
+            <param name="authorizations">Authorizations to add</param>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Discriminators.DiscriminatorMapping">
+            <summary>
+            Discriminator mapping definition.
+            </summary>
+            <param name="PropertyName">The name of the property that is used to distinguish between the discriminated objects.</param>
+            <param name="Mappings">The enum value to type that defines the descriminator.</param>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Discriminators.DiscriminatorMapping.#ctor(System.String,System.ValueTuple{System.Enum,System.Type}[])">
+            <summary>
+            Discriminator mapping definition.
+            </summary>
+            <param name="PropertyName">The name of the property that is used to distinguish between the discriminated objects.</param>
+            <param name="Mappings">The enum value to type that defines the descriminator.</param>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Discriminators.DiscriminatorMappings">
+            <summary>
+            Mulitple Discriminator Mappings.
+            </summary>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Exceptions.InvalidTypeException">
+            <summary>
+            An invalid type was used. Message contains the reason why the type was invalid.
+            </summary>
+        </member>
+        <member name="P:Valigator.OpenApi.AspNetCore.Exceptions.InvalidTypeException.InvalidType">
+            <summary>
+            The type that was invalid.
+            </summary>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Exceptions.MissingDefaultConstructorException">
+            <summary>
+            The type provided does not have a default constructor (constructor with no parameters) defined.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Exceptions.MissingDefaultConstructorException.#ctor(System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="instanceType">The type that is missing a default constructor.</param>
+        </member>
+        <member name="P:Valigator.OpenApi.AspNetCore.Exceptions.MissingDefaultConstructorException.InstanceType">
+            <summary>
+            The type that is missing a default constructor.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Extensions.TypeExtensions.IsValigatorData(System.Type)">
+            <summary>
+            Determine if a particular property is a Valigator Data object
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Extensions.TypeExtensions.IsComplexObject(System.Type)">
+            <summary>
+            Determine if the object is "complex" (ie: not primitive). This will result in a $ref in the OpenApi's generated JSON.
+            </summary>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.ModelBinding.OpenApiValidateModelBinderAttribute">
+            <summary>
+            Class used to create a new ModelBinder.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.ModelBinding.OpenApiValidateModelBinderAttribute.GetData">
+            <summary>
+            Get the data from the model. This is type Data&lt;T&gt;.
+            </summary>
+            <returns>Valigator Data</returns>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.EndpointInformation">
+            <summary>
+            Information about an endpoint
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.EndpointInformation.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Information about an endpoint
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.EndpointInformation.CreateOperationId(System.String,System.String)">
+            <summary>
+            Create an operation ID
+            </summary>
+            <param name="controllerName">The name of the controller</param>
+            <param name="methodName">The name of the method</param>
+            <returns>Operation ID that can be used when creating EndpointInformation objects</returns>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions">
+            <summary>
+            Extension methods for setting up OpenAPI with Valigator
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions})">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator.
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="confgureOptions">Additional configuration</param>
+            <returns>ServiceCollection</returns>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions,System.Action{NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings})">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="options">Additional options to use</param>
+            <param name="optionAction">Additional configuration for OpenAPI Document generation</param>
+            <returns>ServiceCollection</returns>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions)">
+            <summary>
+            Add OpenAPI to a solution that uses Valigator
+            </summary>
+            <param name="services">ServiceCollection</param>
+            <param name="options">Additional options to use</param>
+            <returns>ServiceCollection</returns>
+        </member>
+        <member name="P:Valigator.OpenApi.AspNetCore.TypeMapping.CustomPrimitiveTypeMapper.MappedType">
+            <summary>
+            Gets the mapped type.
+            </summary>
+        </member>
+        <member name="F:Valigator.OpenApi.AspNetCore.TypeMapping.CustomPrimitiveTypeMapper._schemaModifyer">
+            <summary>
+            The action that will modify the schema
+            </summary>
+        </member>
+        <member name="P:Valigator.OpenApi.AspNetCore.TypeMapping.CustomPrimitiveTypeMapper.UseReference">
+            <summary>Gets a value indicating whether to use a JSON Schema reference for the type.</summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.TypeMapping.CustomPrimitiveTypeMapper.GenerateSchema(NJsonSchema.JsonSchema,NJsonSchema.Generation.TypeMappers.TypeMapperContext)">
+            <summary>
+            Gets the schema for the mapped type.
+            </summary>
+            <param name="schema">The schema.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.ValigatorUnwrapping.ValigatorSchemaGenerator.GenerateObject(NJsonSchema.JsonSchema,NJsonSchema.Generation.JsonTypeDescription,NJsonSchema.Generation.JsonSchemaResolver)">
+            <summary>Generates the properties for the given type and schema.</summary>
+            <param name="schema">The properties</param>
+            <param name="typeDescription">The type description.</param>
+            <param name="schemaResolver">The schema resolver.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.ValigatorUnwrapping.ValigatorUnwrappingReflectionService">
+            <summary>
+            Custom reflection service that turns types into their most basic forms.
+            </summary>
+        </member>
+    </members>
+</doc>

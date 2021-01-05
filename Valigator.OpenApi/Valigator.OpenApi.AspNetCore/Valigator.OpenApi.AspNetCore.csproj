@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Version>0.1.0-pre01</Version>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.AspNetCore\Valigator.OpenApi.AspNetCore.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Functional.Common.Extensions" Version="2.6.0" />
+		<PackageReference Include="Functional.Primitives.Extensions" Version="2.6.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.9.4" />
+		<PackageReference Include="Valigator.AspNetCore" Version="2.1.2" />
+	</ItemGroup>
+
+</Project>
