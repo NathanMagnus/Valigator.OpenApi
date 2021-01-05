@@ -58,5 +58,27 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 					.Should()
 					.NotHaveValue();
 		}
+
+		public class IsValigatorDataTests
+		{
+			public class ValigatorDataTestClass1 { }
+
+			[Theory]
+			[InlineData(typeof(Data<>))]
+			[InlineData(typeof(Data<int>))]
+			[InlineData(typeof(Data<object>))]
+			[InlineData(typeof(Data<decimal>))]
+			[InlineData(typeof(Data<ValigatorDataTestClass1>))]
+			public void ShouldBeTrue(Type type)
+				=> type.IsValigatorData().Should().BeTrue();
+
+			[Theory]
+			[InlineData(typeof(int))]
+			[InlineData(typeof(object))]
+			[InlineData(typeof(decimal))]
+			[InlineData(typeof(ValigatorDataTestClass1))]
+			public void ShouldBeFalse(Type type)
+				=> type.IsValigatorData().Should().BeFalse();
+		}
 	}
 }
