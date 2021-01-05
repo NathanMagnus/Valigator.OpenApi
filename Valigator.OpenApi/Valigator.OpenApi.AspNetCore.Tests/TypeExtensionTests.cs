@@ -17,12 +17,9 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			}
 
 			public interface ICreateInstanceTestInterface1 { }
-			public abstract class CreateInstanceAbstractClass { }
+			public abstract class CreateInstanceAbstractClass1 { }
 
 			[Theory]
-			[InlineData(typeof(int))]
-			[InlineData(typeof(decimal))]
-			[InlineData(typeof(Authorization.Authorization))]
 			[InlineData(typeof(CreateInstanceTestClass1))]
 			public void ShouldReturnInstanceSuccessfully(Type type)
 				=> type
@@ -38,7 +35,7 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 
 			[Theory]
 			[InlineData(typeof(ICreateInstanceTestInterface1))]
-			[InlineData(typeof(CreateInstanceAbstractClass))]
+			[InlineData(typeof(CreateInstanceAbstractClass1))]
 			public void ShouldReturnInvalidTypeException(Type type)
 				=> type
 					.CreateInstance()
@@ -50,6 +47,8 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 
 			[Theory]
 			[InlineData(typeof(string))]
+			[InlineData(typeof(int))]
+			[InlineData(typeof(decimal))]
 			public void ShouldReturnNoneOption(Type type)
 				=> type
 					.CreateInstance()
