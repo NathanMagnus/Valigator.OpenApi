@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore", "Valigator.OpenApi.AspNetCore\Valigator.OpenApi.AspNetCore.csproj", "{5A135EC3-B9C0-4652-8D0B-4D7A613B3DA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.Newtonsoft.Json", "Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.csproj", "{05E854A2-3F34-4914-BC1A-00D027B8C6BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore.Newtonsoft.Json", "Valigator.OpenApi.AspNetCore.Newtonsoft.Json\Valigator.OpenApi.AspNetCore.Newtonsoft.Json.csproj", "{05E854A2-3F34-4914-BC1A-00D027B8C6BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AC0C3BAD-D677-4647-A938-FADE5366E896}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.TestWebApp", "Valigator.OpenApi.TestWebApp\Valigator.OpenApi.TestWebApp.csproj", "{1FD43688-F16A-4C72-82A8-BCAAC01CB867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore.TestWebApp", "Valigator.OpenApi.AspNetCore.TestWebApp\Valigator.OpenApi.AspNetCore.TestWebApp.csproj", "{1FD43688-F16A-4C72-82A8-BCAAC01CB867}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BD499BF-EAA1-48A5-97FE-89E2C20DC524}"
 EndProject

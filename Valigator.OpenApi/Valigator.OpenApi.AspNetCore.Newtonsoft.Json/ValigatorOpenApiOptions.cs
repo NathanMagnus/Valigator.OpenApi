@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Valigator.OpenApi.AspNetCore.Setup;
 
-namespace Valigator.OpenApi.Newtonsoft.Json
+namespace Valigator.OpenApi.AspNetCore.Newtonsoft.Json
 {
 	public static class ConfigurationExtensions
 	{

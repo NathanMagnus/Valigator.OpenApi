@@ -8,13 +8,12 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NJsonSchema.Generation;
 using System;
-using Valigator.OpenApi.AspNetCore.Authorization;
 using Valigator.OpenApi.AspNetCore.Discriminators;
 using Valigator.OpenApi.AspNetCore.Setup;
-using Valigator.OpenApi.Newtonsoft.Json;
-using Valigator.OpenApi.TestWebApp.Controllers;
+using Valigator.OpenApi.AspNetCore.Newtonsoft.Json;
+using Valigator.OpenApi.AspNetCore.TestWebApp.Controllers;
 
-namespace Valigator.OpenApi.TestWebApp
+namespace Valigator.OpenApi.AspNetCore.TestWebApp
 {
 	public class Startup
 	{
@@ -36,7 +35,7 @@ namespace Valigator.OpenApi.TestWebApp
 					"Title",
 					"Unversioned",
 					"Description",
-					Array.Empty<Authorization>(),
+					Array.Empty<Authorization.Authorization>(),
 					CreateDiscriminatorMappings(),
 					s => { },
 					new DefaultSchemaNameGenerator()

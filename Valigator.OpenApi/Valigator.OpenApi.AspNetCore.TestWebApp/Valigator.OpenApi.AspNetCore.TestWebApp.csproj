@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.csproj" />
+    <ProjectReference Include="..\Valigator.OpenApi.AspNetCore.Newtonsoft.Json\Valigator.OpenApi.AspNetCore.Newtonsoft.Json.csproj" />
   </ItemGroup>
 
 </Project>

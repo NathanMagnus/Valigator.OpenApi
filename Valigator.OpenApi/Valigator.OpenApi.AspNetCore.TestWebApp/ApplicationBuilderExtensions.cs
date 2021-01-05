@@ -2,7 +2,7 @@
 using NSwag.AspNetCore;
 using System;
 
-namespace Valigator.OpenApi.TestWebApp
+namespace Valigator.OpenApi.AspNetCore.TestWebApp
 {
 	internal static class ApplicationBuilderExtensions
 	{

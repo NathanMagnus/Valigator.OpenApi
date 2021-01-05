@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Valigator.OpenApi.TestWebApp.Controllers
+namespace Valigator.OpenApi.AspNetCore.TestWebApp.Controllers
 {
 	[Route("Test")]
 	public class TestController : Controller

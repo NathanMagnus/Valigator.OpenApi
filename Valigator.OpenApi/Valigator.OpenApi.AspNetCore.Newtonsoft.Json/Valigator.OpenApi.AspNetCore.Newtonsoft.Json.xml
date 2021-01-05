@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Valigator.OpenApi.Newtonsoft.Json</name>
+        <name>Valigator.OpenApi.AspNetCore.Newtonsoft.Json</name>
     </assembly>
     <members>
     </members>

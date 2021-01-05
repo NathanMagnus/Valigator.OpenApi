@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Valigator.OpenApi.TestWebApp": {
+    "Valigator.OpenApi.AspNetCore.TestWebApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

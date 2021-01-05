@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.Newtonsoft.Json\Valigator.OpenApi.Newtonsoft.Json.xml</DocumentationFile>
+		<DocumentationFile>C:\GIT\Valigator.OpenApi\Valigator.OpenApi\Valigator.OpenApi.AspNetCore.Newtonsoft.Json\Valigator.OpenApi.AspNetCore.Newtonsoft.Json.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

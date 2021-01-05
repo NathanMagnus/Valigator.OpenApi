@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Valigator.OpenApi.TestWebApp
+namespace Valigator.OpenApi.AspNetCore.TestWebApp
 {
 	public class Program
 	{
