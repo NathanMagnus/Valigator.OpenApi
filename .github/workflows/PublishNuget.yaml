@@ -53,7 +53,7 @@ jobs:
       - name: Publish
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
-          PROJECT_FILE_PATH: Valigator.OpenApi/Valigator.OpenApi.Core/Valigator.OpenApi.Core.csproj  
+          PROJECT_FILE_PATH: Valigator.OpenApi/Valigator.OpenApi.Newtonsoft.Json/Valigator.OpenApi.Newtonsoft.Json.csproj  
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
           #VERSION_FILE_PATH: Valigator.OpenApi/Version.txt
           #VERSION_REGEX: ^(.*)$
