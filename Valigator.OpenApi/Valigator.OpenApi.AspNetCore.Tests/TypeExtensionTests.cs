@@ -201,7 +201,6 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			[Theory]
 			[InlineData(typeof(int?))]
 			[InlineData(typeof(Nullable<>))]
-			[InlineData(typeof(object))]
 			public void ShouldBeTrue(Type type)
 				=> type.IsNullable().Should().BeTrue();
 
@@ -210,6 +209,7 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			[InlineData(typeof(int))]
 			[InlineData(typeof(decimal))]
 			[InlineData(typeof(string))]
+			[InlineData(typeof(object))]
 			[InlineData(typeof(TestClass1))]
 			[InlineData(typeof(IInterface))]
 			public void ShouldBeFalse(Type type)
@@ -222,15 +222,14 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { public class InnerClass { } }
 
 			[Theory]
-			[InlineData(typeof(int?), "int")]
-			[InlineData(typeof(object), "object")]
-			[InlineData(typeof(int), "int")]
-			[InlineData(typeof(decimal), "decimal")]
-			[InlineData(typeof(string), "string")]
+			[InlineData(typeof(int), "Int32")]
+			[InlineData(typeof(object), "Object")]
+			[InlineData(typeof(decimal), "Decimal")]
+			[InlineData(typeof(string), "String")]
 			[InlineData(typeof(TestClass1), "TestClass1")]
 			[InlineData(typeof(IInterface), "IInterface")]
-			[InlineData(typeof(TestClass1.InnerClass), "TestClass1+InnerClass")]
-			[InlineData(typeof(int[]), "int")]
+			[InlineData(typeof(TestClass1.InnerClass), "InnerClass")]
+			[InlineData(typeof(int[]), "Int32")]
 			public void ShouldBeTrue(Type type, string name)
 				=> type.GetOpenApiTypeName().Should().Be(name);
 		}
@@ -241,6 +240,7 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { }
 
 			[Theory]
+			[InlineData(typeof(object))]
 			[InlineData(typeof(Nullable<>))]
 			[InlineData(typeof(TestClass1))]
 			[InlineData(typeof(IInterface))]
@@ -249,7 +249,6 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 
 
 			[Theory]
-			[InlineData(typeof(object))]
 			[InlineData(typeof(int))]
 			[InlineData(typeof(decimal))]
 			[InlineData(typeof(string))]
@@ -361,8 +360,8 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { }
 
 			[Theory]
-			[InlineData(typeof(int?), typeof(int))]
-			[InlineData(typeof(Nullable<int>), typeof(int))]
+			[InlineData(typeof(int?), typeof(int?))]
+			[InlineData(typeof(Nullable<int>), typeof(Nullable<int>))]
 			[InlineData(typeof(object), typeof(object))]
 			[InlineData(typeof(int), typeof(int))]
 			[InlineData(typeof(IInterface), typeof(IInterface))]
@@ -415,8 +414,8 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { }
 
 			[Theory]
-			[InlineData(typeof(int?), typeof(int))]
-			[InlineData(typeof(Nullable<int>), typeof(int))]
+			[InlineData(typeof(int?), typeof(int?))]
+			[InlineData(typeof(Nullable<int>), typeof(Nullable<int>))]
 			[InlineData(typeof(object), typeof(object))]
 			[InlineData(typeof(int), typeof(int))]
 			[InlineData(typeof(IInterface), typeof(IInterface))]
@@ -435,8 +434,8 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { }
 
 			[Theory]
-			[InlineData(typeof(int?), typeof(int))]
-			[InlineData(typeof(Nullable<int>), typeof(int))]
+			[InlineData(typeof(int?), typeof(int?))]
+			[InlineData(typeof(Nullable<int>), typeof(Nullable<int>))]
 			[InlineData(typeof(object), typeof(object))]
 			[InlineData(typeof(int), typeof(int))]
 			[InlineData(typeof(IInterface), typeof(IInterface))]
@@ -457,7 +456,7 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			[InlineData(typeof(Result<object, object>), typeof(object), typeof(object))]
 			[InlineData(typeof(Result<Data<object[]>, Task<object>[]>), typeof(Data<object[]>), typeof(Task<object>[]))]
 			public void ShouldHaveTwoOutputTypes(Type inputType, Type outputType1, Type outputType2)
-				=> inputType.UnwrapDefault().Should().BeEquivalentTo(outputType1, outputType2);
+				=> inputType.UnwrapResult().Should().BeEquivalentTo(outputType1, outputType2);
 		}
 
 		public class UnwrapTaskTests
@@ -466,8 +465,8 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			private class TestClass1 { }
 
 			[Theory]
-			[InlineData(typeof(int?), typeof(int))]
-			[InlineData(typeof(Nullable<int>), typeof(int))]
+			[InlineData(typeof(int?), typeof(int?))]
+			[InlineData(typeof(Nullable<int>), typeof(Nullable<int>))]
 			[InlineData(typeof(object), typeof(object))]
 			[InlineData(typeof(int), typeof(int))]
 			[InlineData(typeof(IInterface), typeof(IInterface))]
@@ -477,7 +476,7 @@ namespace Valigator.OpenApi.AspNetCore.Tests
 			[InlineData(typeof(Task<Task<Task<object>>>), typeof(object))]
 			[InlineData(typeof(Task<Task<Task<IEnumerable<object>>>>), typeof(IEnumerable<object>))]
 			public void ShouldHaveSingleOutputType(Type inputType, Type outputType1)
-				=> inputType.UnwrapOption().Should().Be(outputType1);
+				=> inputType.UnwrapTask().Should().Be(outputType1);
 		}
 
 		public class GetSuccessTypeTests
