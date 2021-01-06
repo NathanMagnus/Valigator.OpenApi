@@ -42,7 +42,7 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 
 		private static void GenerateKnownType(Type type, ValigatorSchemaGenerator generator)
 		{
-			if (!generator.Resolver.HasSchema(type, type.IsIntEnum()))
+			if (!generator.Resolver.HasSchema(type, type.IsEnum))
 				generator.Generate(type, generator.Resolver);
 		}
 

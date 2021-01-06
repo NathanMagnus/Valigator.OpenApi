@@ -24,9 +24,9 @@ namespace Valigator.OpenApi.AspNetCore.TypeMapping
 
 		public void GenerateSchema(JsonSchema schema, TypeMapperContext context)
 		{
-			if (!context.JsonSchemaResolver.HasSchema(context.Type, context.Type.IsIntEnum()))
+			if (!context.JsonSchemaResolver.HasSchema(context.Type, context.Type.IsEnum))
 				CreateAndAddSchema(schema, context);
-			schema.Reference = context.JsonSchemaResolver.GetSchema(context.Type, context.Type.IsIntEnum());
+			schema.Reference = context.JsonSchemaResolver.GetSchema(context.Type, context.Type.IsEnum);
 		}
 
 		private void CreateAndAddSchema(JsonSchema schema, TypeMapperContext context)

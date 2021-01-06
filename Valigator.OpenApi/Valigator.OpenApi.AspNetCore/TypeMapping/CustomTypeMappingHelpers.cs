@@ -51,8 +51,8 @@ namespace Valigator.OpenApi.AspNetCore.TypeMapping
 
 		public static void AddMappingSchema(this JsonSchemaResolver resolver, Type key, JsonSchema schema)
 		{
-			if (!resolver.HasSchema(key, key.IsIntEnum()))
-				resolver.AddSchema(key, key.IsIntEnum(), schema);
+			if (!resolver.HasSchema(key, key.IsEnum))
+				resolver.AddSchema(key, key.IsEnum, schema);
 		}
 	}
 }
