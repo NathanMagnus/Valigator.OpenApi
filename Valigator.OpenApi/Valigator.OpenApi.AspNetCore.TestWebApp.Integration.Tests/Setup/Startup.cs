@@ -1,20 +1,19 @@
-﻿using Validator.OpenApi.Configuration;
-using Validator.OpenApi.Integration.Tests.TestResources;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using Valigator;
-using Valigator.OpenApi.AspNetCore.Newtonsoft.Json;
-using Valigator.OpenApi.AspNetCore.Setup;
-using Valigator.OpenApi.AspNetCore.Authorization;
-using Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests.Setup;
-using Valigator.OpenApi.AspNetCore;
+using NJsonSchema.Generation;
 using NSwag;
 using NSwag.Generation.Processors.Contexts;
-using NJsonSchema.Generation;
+using System;
+using System.Collections.Generic;
+using Validator.OpenApi.Integration.Tests.TestResources;
+using Valigator;
+using Valigator.OpenApi.AspNetCore;
+using Valigator.OpenApi.AspNetCore.Authorization;
+using Valigator.OpenApi.AspNetCore.Newtonsoft.Json;
+using Valigator.OpenApi.AspNetCore.Setup;
+using Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests.Setup;
 
 namespace Validator.OpenApi.Integration.Tests.Setup
 {
@@ -60,10 +59,8 @@ namespace Validator.OpenApi.Integration.Tests.Setup
 						CreateUserTokenAuthorization(info => info.OperationId != CreateOperationId(nameof(TestController), nameof(TestController.TestGetEndpoint)))
 					},
 					new Valigator.OpenApi.AspNetCore.Discriminators.DiscriminatorMappings(),
-					_ => { },
-					new DefaultSchemaNameGenerator()),
-                
-				c => c.AddExtraResponses()
+					c => c.AddExtraResponses(),
+					new DefaultSchemaNameGenerator())
 			);
 		}
 
@@ -79,7 +76,6 @@ namespace Validator.OpenApi.Integration.Tests.Setup
 			});
 		}
 
-		{
 		public const string UserTokenSecurityRequirementKey = "UserToken";
 		public static readonly OpenApiSecurityRequirement UserTokenRequirement = new OpenApiSecurityRequirement()
 		{

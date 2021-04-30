@@ -22,7 +22,7 @@ namespace Validator.OpenApi.Integration.Tests.TestResources
 		public Data<int> Int { get; set; } = Data.Required<int>().InRange(greaterThanOrEqualTo: 1);
 		public Data<int> Int2 { get; set; } = Data.Required<int>().InRange(lessThan: 100);
 		public Data<Guid> Guid { get; set; } = Data.Required<Guid>();
-		public Data<IEnumerable<ExampleNestedClass>> ExampleNestedArray { get; set; } = Data.Required<IEnumerable<ExampleNestedClass>>();
+		public Data<ExampleNestedClass[]> ExampleNestedArray { get; set; } = Data.Required<ExampleNestedClass[]>();
 		public Data<CycleA> CycleA { get; set; } = Data.Required<CycleA>();
 		public Data<ExampleEnum> ExampleEnumValue { get; set; } = Data.Defaulted(ExampleEnum.Value2);
 		public Data<GuidIdentifier> CartIdentifier { get; set; } = Data.Required<GuidIdentifier>();

@@ -12,9 +12,11 @@
 		<PackageReference Include="Functional.Primitives.FluentAssertions" Version="3.0.1" />
 		<PackageReference Include="Interrogator.Http" Version="0.11.0" />
 		<PackageReference Include="Interrogator.xUnit" Version="0.11.0" />
+		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.5" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
 		<PackageReference Include="Valigator.AspNetCore" Version="2.1.2" />
 		<PackageReference Include="Valigator.AspNetCore.Newtonsoft.Json" Version="2.1.2" />
+		<PackageReference Include="xunit" Version="2.4.1" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

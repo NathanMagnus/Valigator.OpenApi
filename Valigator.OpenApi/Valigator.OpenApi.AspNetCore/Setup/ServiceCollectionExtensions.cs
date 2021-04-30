@@ -33,21 +33,11 @@ namespace Valigator.OpenApi.AspNetCore.Setup
 		/// </summary>
 		/// <param name="services">ServiceCollection</param>
 		/// <param name="options">Additional options to use</param>
-		/// <param name="optionAction">Additional configuration for OpenAPI Document generation</param>
-		/// <returns>ServiceCollection</returns>
-		public static IServiceCollection AddValigatorOpenApi(this IServiceCollection services, ValigatorOpenApiOptions options, Action<AspNetCoreOpenApiDocumentGeneratorSettings> optionAction)
-			=> services.AddOpenApiWithValigator(options, optionAction);
-
-		/// <summary>
-		/// Add OpenAPI to a solution that uses Valigator
-		/// </summary>
-		/// <param name="services">ServiceCollection</param>
-		/// <param name="options">Additional options to use</param>
 		/// <returns>ServiceCollection</returns>
 		public static IServiceCollection AddValigatorOpenApi(this IServiceCollection services, ValigatorOpenApiOptions options)
-			=> services.AddOpenApiWithValigator(options, _ => { });
+			=> services.AddOpenApiWithValigator(options);
 
-		private static IServiceCollection AddOpenApiWithValigator(this IServiceCollection services, ValigatorOpenApiOptions options, Action<AspNetCoreOpenApiDocumentGeneratorSettings> optionAction)
+		private static IServiceCollection AddOpenApiWithValigator(this IServiceCollection services, ValigatorOpenApiOptions options)
 			=> services
 				.AddOpenApiDocument(configuration =>
 				{
@@ -71,7 +61,7 @@ namespace Valigator.OpenApi.AspNetCore.Setup
 					configuration.OperationProcessors.Add(new AdditionalTypeMappingOperationProcessor(configuration));
 					configuration.DocumentProcessors.Add(new DiscriminatorCleanupDocumentProcessor(options.DiscriminatorMappings));
 
-					optionAction?.Invoke(configuration);
+					options.ConfigureNswagSettings?.Invoke(configuration);
 				});
 
 		private static void AddSecurities(AspNetCoreOpenApiDocumentGeneratorSettings configuration, Authorization.Authorization[] authorizations)
