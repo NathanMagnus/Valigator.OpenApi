@@ -117,15 +117,6 @@
             <param name="confgureOptions">Additional configuration</param>
             <returns>ServiceCollection</returns>
         </member>
-        <member name="M:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions,System.Action{NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings})">
-            <summary>
-            Add OpenAPI to a solution that uses Valigator
-            </summary>
-            <param name="services">ServiceCollection</param>
-            <param name="options">Additional options to use</param>
-            <param name="optionAction">Additional configuration for OpenAPI Document generation</param>
-            <returns>ServiceCollection</returns>
-        </member>
         <member name="M:Valigator.OpenApi.AspNetCore.Setup.ServiceCollectionExtensions.AddValigatorOpenApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions)">
             <summary>
             Add OpenAPI to a solution that uses Valigator

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Valigator.OpenApi.AspNetCore.Exceptions;
 
@@ -26,7 +27,8 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 				if (type.IsInterface)
 					throw new InvalidTypeException(type, $"'{type.Name}' is an interface. Interfaces are not allowed as outputs.");
 
-				return Option.Create(type.GetConstructor(Type.EmptyTypes) != null, () => Activator.CreateInstance(type));
+				var parameterlessConstructor = type.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public).TryFirst(constructor => !constructor.GetParameters().Any());
+				return parameterlessConstructor.Map(constructor => constructor.Invoke(Array.Empty<object>()));
 			});
 
 		/// <summary>
@@ -182,5 +184,11 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 		public static Type GetFailureType(this Type type)
 			=> type
 				.GetGenericArguments()?.LastOrDefault();
+
+		public static Option<Type> GetResultFailure(this Type type)
+			=> Option.Create(type.IsResult(), () => type.GetGenericArguments().Last());
+
+		public static Option<Type> GetResultSuccess(this Type type)
+			=> Option.Create(type.IsResult(), () => type.GetGenericArguments().First());
 	}
 }

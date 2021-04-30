@@ -9,5 +9,4 @@ namespace Valigator.OpenApi.AspNetCore.Authorization
 	/// Authorization information.
 	/// </summary>
 	public record Authorization(string Name, OpenApiSecurityScheme SecurityScheme, OpenApiSecurityRequirement SecurityRequirement, Func<OperationProcessorContext, IEnumerable<string>> ScopesFunc, Func<EndpointInformation, bool> OperationFilter, params string[] ScopeNames);
-
 }

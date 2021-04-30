@@ -55,6 +55,7 @@ namespace Valigator.OpenApi.AspNetCore.TypeMapping
 				.Operation
 				.Parameters
 				.Where(p => originParameters.Contains(p.Name))
+				.ToArray()
 				.Do(item => context.OperationDescription.Operation.Parameters.Remove(item));
 		}
 
