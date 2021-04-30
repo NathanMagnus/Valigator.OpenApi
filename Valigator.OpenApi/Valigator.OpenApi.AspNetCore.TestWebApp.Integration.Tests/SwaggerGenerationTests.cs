@@ -452,7 +452,7 @@ namespace Validator.OpenApi.Integration.Tests
 			{
 				title = "Open Api Test Project Title",
 				description = "Open Api Test Project Description",
-				version = "v1"
+				version = "Version"
 			});
 		}
 
