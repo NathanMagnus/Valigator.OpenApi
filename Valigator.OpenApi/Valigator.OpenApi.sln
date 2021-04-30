@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BD499BF-EAA1-48A5-97FE-89E2C20DC524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valigator.OpenApi.AspNetCore.Tests", "Valigator.OpenApi.AspNetCore.Tests\Valigator.OpenApi.AspNetCore.Tests.csproj", "{536B1CAA-44E0-42FF-A2B8-5DD48B58D3CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore.Tests", "Valigator.OpenApi.AspNetCore.Tests\Valigator.OpenApi.AspNetCore.Tests.csproj", "{536B1CAA-44E0-42FF-A2B8-5DD48B58D3CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests", "Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests\Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests.csproj", "{FD81E969-A985-4699-91F9-71EF3FFCAAF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests", "Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests\Valigator.OpenApi.AspNetCore.Newtonsoft.Json.Tests.csproj", "{FD81E969-A985-4699-91F9-71EF3FFCAAF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests", "Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests\Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests.csproj", "{AB0B22D4-6086-4101-AE8B-158D8DE8C086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests", "Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests\Valigator.OpenApi.AspNetCore.TestWebApp.Integration.Tests.csproj", "{AB0B22D4-6086-4101-AE8B-158D8DE8C086}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
