@@ -48,8 +48,7 @@ namespace Valigator.OpenApi.AspNetCore.Setup
 			=> services.AddOpenApiWithValigator(options, _ => { });
 
 		private static IServiceCollection AddOpenApiWithValigator(this IServiceCollection services, ValigatorOpenApiOptions options, Action<AspNetCoreOpenApiDocumentGeneratorSettings> optionAction)
-		{
-			services
+			=> services
 				.AddOpenApiDocument(configuration =>
 				{
 					configuration.PostProcess = document =>
@@ -74,8 +73,6 @@ namespace Valigator.OpenApi.AspNetCore.Setup
 
 					optionAction?.Invoke(configuration);
 				});
-			return services;
-		}
 
 		private static void AddSecurities(AspNetCoreOpenApiDocumentGeneratorSettings configuration, Authorization.Authorization[] authorizations)
 			=> configuration.OperationProcessors.Add(new AuthorizationOperationProcessor(authorizations));

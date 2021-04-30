@@ -134,6 +134,16 @@
             <param name="options">Additional options to use</param>
             <returns>ServiceCollection</returns>
         </member>
+        <member name="T:Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions">
+            <summary>
+            Options for Valigator Open API configuration.
+            </summary>
+        </member>
+        <member name="M:Valigator.OpenApi.AspNetCore.Setup.ValigatorOpenApiOptions.#ctor(System.String,System.String,System.String,Valigator.OpenApi.AspNetCore.Authorization.Authorization[],Valigator.OpenApi.AspNetCore.Discriminators.DiscriminatorMappings,System.Action{NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGeneratorSettings},NJsonSchema.Generation.ISchemaNameGenerator)">
+            <summary>
+            Options for Valigator Open API configuration.
+            </summary>
+        </member>
         <member name="P:Valigator.OpenApi.AspNetCore.TypeMapping.CustomPrimitiveTypeMapper.MappedType">
             <summary>
             Gets the mapped type.

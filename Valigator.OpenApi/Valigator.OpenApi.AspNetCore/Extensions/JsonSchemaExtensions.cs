@@ -14,6 +14,8 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 {
 	internal static class JsonSchemaExtensions
 	{
+		private static readonly IHandleValigatorValueDescriptor[] _descriptorHandlers = DescriptorHandlerFactory.CreateDescriptorHandlers().ToArray();
+
 		public static void ModifyPropertySchema(this JsonSchema schema, DataDescriptor dataDescriptor, OpenApiDocumentGeneratorSettings settings)
 		{
 			schema.IsNullableRaw = true; // Everything will be nullable unless Valigator indicates NotNullable via  DataDescriptor
@@ -21,7 +23,7 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 			var tuples = dataDescriptor
 				.ValueDescriptors
 				.Concat(dataDescriptor.MappingDescriptor.Match(s => s.SourceValueDescriptors, () => Array.Empty<IValueDescriptor>()))
-				.SelectMany(d => DescriptorHandlerFactory.CreateDescriptorHandlers().Where(h => h.CanHandleValueDescriptor(d)).Select(h => (ValueDescriptor: d, Handler: h)))
+				.SelectMany(d => _descriptorHandlers.Where(h => h.CanHandleValueDescriptor(d)).Select(h => (ValueDescriptor: d, Handler: h)))
 				.Do(tuple => tuple.Handler.HandleDescriptor(tuple.ValueDescriptor, dataDescriptor.PropertyType.UnwrapOption(), schema));
 
 			schema.SetDefaultValue(dataDescriptor, settings);

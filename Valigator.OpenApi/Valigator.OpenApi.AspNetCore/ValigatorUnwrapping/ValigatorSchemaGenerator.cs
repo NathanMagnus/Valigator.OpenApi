@@ -49,7 +49,7 @@ namespace Valigator.OpenApi.AspNetCore.ValigatorUnwrapping
 
 			contextualType
 				.ContextAttributes
-				.OfType<IDescriptorProvider>() //TOOD: Rename project to Valigator.OpenApi.AspNetCore
+				.OfType<IDescriptorProvider>()
 				.Where(attribute => attribute.GetType().GetInterfaces().Any(i => i.GetGenericArguments().Any(genericType => genericType == contextualType.Type)))
 				.Do(attribute => newSchema.ModifyPropertySchema(attribute.GetDescriptor(contextualType.Type), _aspNetCoreSettings))
 				.ToArray();

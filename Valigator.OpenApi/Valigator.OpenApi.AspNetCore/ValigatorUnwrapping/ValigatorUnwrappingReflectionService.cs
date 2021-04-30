@@ -27,9 +27,6 @@ namespace Valigator.OpenApi.AspNetCore.ValigatorUnwrapping
 		}
 
 		private Result<ContextualType, Exception> GetContextualType(ContextualType contextualType)
-			=> GetValigatorContextualType(contextualType);
-
-		private Result<ContextualType, Exception> GetValigatorContextualType(ContextualType contextualType)
 			=> GetPropertyInfo(contextualType)
 				.Match(
 					info => info
@@ -53,11 +50,8 @@ namespace Valigator.OpenApi.AspNetCore.ValigatorUnwrapping
 
 		private Option<(Type InstanceType, string PropertyName)> GetPropertyInfo(ContextualType contextualType)
 			=> Option
-				.Create(contextualType.Type.IsValigatorData(), 1)
-				.Match(
-					_ => Option.FromNullable(contextualType as ContextualPropertyInfo),
-					() => Option.None<ContextualPropertyInfo>()
-				)
+				.Create(contextualType.Type.IsValigatorData(), Unit.Value)
+				.Bind(_ => Option.FromNullable(contextualType as ContextualPropertyInfo))
 				.Match(
 					contextualPropertyInfo => Option.Some((contextualPropertyInfo.PropertyInfo.DeclaringType, contextualPropertyInfo.Name)),
 					() =>
