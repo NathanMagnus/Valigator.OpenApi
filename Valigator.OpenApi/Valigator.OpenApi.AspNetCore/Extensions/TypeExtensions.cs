@@ -47,9 +47,6 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 		public static bool IsResult(this Type type)
 			=> type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Result<,>);
 
-		public static bool IsIntEnum(this Type type)
-			=> type.IsEnum;
-
 		public static bool IsNullable(this Type type)
 			=> type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 
@@ -108,7 +105,7 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 			=> type
 				.UnwrapType(_defaultUnwrappingFunc);
 
-		public static IEnumerable<Type> UnwrapType(this Type type, Func<Type, IEnumerable<Type>> unwrappingFunction)
+		private static IEnumerable<Type> UnwrapType(this Type type, Func<Type, IEnumerable<Type>> unwrappingFunction)
 		{
 			var stack = new Stack<Type>();
 			stack.Push(type);
@@ -185,11 +182,5 @@ namespace Valigator.OpenApi.AspNetCore.Extensions
 		public static Type GetFailureType(this Type type)
 			=> type
 				.GetGenericArguments()?.LastOrDefault();
-
-		//public static Option<Type> GetResultSuccess(this Type type)
-		//	=> Option.Create(type.IsResult(), () => type.GetGenericArguments().First());
-
-		//public static Option<Type> GetResultFailure(this Type type)
-		//	=> Option.Create(type.IsResult(), () => type.GetGenericArguments().Last());
 	}
 }
